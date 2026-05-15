@@ -11,8 +11,8 @@ useHead({
   }
 })
 
-const title = 'Nuxt Starter Template'
-const description = 'A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours.'
+const title = 'MTG Wheel'
+const description = 'A simple Magic: The Gathering pack wheel app built with Nuxt UI. Select your packs, set the number of players, and spin the wheel to see which pack you get!'
 
 useSeoMeta({
   title,
@@ -33,19 +33,6 @@ useSeoMeta({
         </NuxtLink>
 
         <TemplateMenu />
-      </template>
-
-      <template #right>
-        <UColorModeButton />
-
-        <UButton
-          to="https://github.com/nuxt-ui-templates/starter"
-          target="_blank"
-          icon="i-simple-icons-github"
-          aria-label="GitHub"
-          color="neutral"
-          variant="ghost"
-        />
       </template>
     </UHeader>
 
