@@ -1,51 +1,72 @@
 # MTG Wheel
 
-[![Nuxt UI](https://img.shields.io/badge/Made%20with-Nuxt%20UI-00DC82?logo=nuxt&labelColor=020420)](https://ui.nuxt.com)
-
-A Nuxt app for randomly distributing Magic: The Gathering (MTG) packs to players using a virtual wheel.
+A Nuxt 4 app for randomly assigning Magic: The Gathering packs to players with a spinning pack wheel.
 
 ## Features
 
-This app consists of three pages:
+- Select packs from `public/mtg_sets.csv`.
+- Configure player count and packs per player.
+- Choose deplete mode, where selected packs are removed after each spin, or replenish mode, where packs can repeat.
+- Spin through a visual pack wheel and track picks as players receive packs.
+- Deploy as a static site on GitHub Pages.
 
-1. **Selection Page**: Players enter which MTG packs will be included in the wheel, the number of players, and choose whether packs should deplete (removed after selection) or replenish (stay in the wheel).
+## Tech Stack
 
-2. **Wheel Page**: Interactive wheel spinning to randomly assign packs to players.
-
-3. **Summary Page**: Displays a summary of the players and which packs each received.
+- Nuxt 4
+- Nuxt UI
+- Tailwind CSS
+- pnpm
 
 ## Setup
 
-Make sure to install the dependencies:
+Install dependencies:
 
 ```bash
 pnpm install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+Start the local dev server:
 
 ```bash
 pnpm dev
 ```
 
-## Production
-
-Build the application for production:
+Run checks:
 
 ```bash
-pnpm build
+pnpm run lint
+pnpm run typecheck
 ```
 
-Locally preview production build:
+Build for production:
 
 ```bash
-pnpm preview
+pnpm run build
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Generate the static GitHub Pages build:
 
-## Renovate integration
+```bash
+pnpm run generate
+```
 
-Install [Renovate GitHub app](https://github.com/apps/renovate/installations/select_target) on your repository and you are good to go.
+## GitHub Pages
+
+This repo includes a GitHub Actions workflow at `.github/workflows/deploy-pages.yml`.
+
+To deploy:
+
+1. Push to the `main` branch.
+2. In the GitHub repository settings, set Pages source to **GitHub Actions**.
+3. The deploy workflow builds with Nuxt's `github_pages` preset and publishes `.output/public`.
+
+For project Pages, the workflow automatically sets `NUXT_APP_BASE_URL` to `/<repo-name>/`. For a root `<owner>.github.io` repository, it uses `/`.
+
+## Data
+
+Pack data is loaded from `public/mtg_sets.csv`. Keep the first row as the header, then add one set per line:
+
+```csv
+set,code
+Tarkir: Dragonstorm,TDM
+```
