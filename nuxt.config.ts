@@ -5,6 +5,10 @@ export default defineNuxtConfig({
     '@nuxt/ui'
   ],
 
+  app: {
+    baseURL: process.env.NUXT_APP_BASE_URL || '/'
+  },
+
   devtools: {
     enabled: true
   },
@@ -12,7 +16,8 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   routeRules: {
-    '/': { prerender: true }
+    '/': { prerender: true },
+    '/wheel': { prerender: true }
   },
 
   compatibilityDate: '2025-01-15',
