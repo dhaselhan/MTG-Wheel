@@ -396,7 +396,7 @@ async function loadPacks() {
   isLoadingPacks.value = true
 
   try {
-    const res = await fetch('/mtg_sets.csv')
+    const res = await fetch(usePublicAssetUrl('mtg_sets.csv'))
     if (!res.ok) throw new Error('Could not load packs list')
 
     const text = await res.text()

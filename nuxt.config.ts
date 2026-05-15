@@ -17,6 +17,12 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2025-01-15',
 
+  nitro: {
+    prerender: {
+      routes: ['/', '/wheel']
+    }
+  },
+
   eslint: {
     config: {
       stylistic: {
